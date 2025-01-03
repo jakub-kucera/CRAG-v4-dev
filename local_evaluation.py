@@ -144,7 +144,7 @@ def load_data_in_batches(dataset_path, batch_size):
                         yield batch
                         batch = initialize_batch()
                 except json.JSONDecodeError:
-                    logger.warn("Warning: Failed to decode a line.")
+                    logger.warning("Warning: Failed to decode a line.")
             # Yield any remaining data as the last batch
             if batch["query"]:
                 yield batch
