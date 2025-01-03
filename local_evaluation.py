@@ -295,7 +295,7 @@ if __name__ == "__main__":
     predictions_results_path = args.predictions_results_path
 
     # Generate predictions
-    if args.generate_only or not args.evaluate_only:
+    if not args.generate_only:
         participant_model = UserModel()
         queries, ground_truths, predictions = generate_predictions(dataset_path, participant_model)
         if not predictions_results_path:
@@ -311,7 +311,7 @@ if __name__ == "__main__":
             }, f)
 
     # Evaluate Predictions
-    if args.evaluate_only or not args.generate_only:
+    if not args.evaluate_only:
         if not predictions_results_path:
             raise ValueError("Please provide the predictions results file name.")
         with open(predictions_results_path, 'r') as f:
