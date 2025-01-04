@@ -72,3 +72,6 @@ class DummyModel:
             answers.append("i don't know")  # Default placeholder response
 
         return answers
+
+    def call_llm_generate(self, prompt_messages) -> str:
+        return '{"score": 0, "explanation": "this is an explanation"}'
