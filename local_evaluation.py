@@ -312,10 +312,12 @@ def evaluate(predictions_results_path, evaluation_results_path):
 
     # generate_model = EvaluateModel()
     # openai_client = OpenAI()
+    start = datetime.now()
     evaluate_model = EvaluateModel()
     evaluation_results = evaluate_predictions(
         queries, ground_truths, predictions, evaluate_model
     )
+    end = datetime.now()
     with open(evaluation_results_path, "w") as f:
         json.dump({
             "predictions_results_path": predictions_results_path,
@@ -324,9 +326,11 @@ def evaluate(predictions_results_path, evaluation_results_path):
             "predictions": predictions,
             "evaluation_results": evaluation_results,
             "generation_model_name": generation_model_name,
-            # "evaluation_model_name": EVALUATION_MODEL_NAME,  TODO
+            "evaluation_model_name": evaluate_model.__class__.__name__,
             "dataset_path": dataset_path,
-            "datetime": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            "start_time": start.strftime("%Y-%m-%d %H:%M:%S"),
+            "end_time": end.strftime("%Y-%m-%d %H:%M:%S"),
+            "runtime": str(end - start),
         }, f)
 
 
