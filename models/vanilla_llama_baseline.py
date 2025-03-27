@@ -117,7 +117,6 @@ class InstructModel:
         formatted_prompts = self.format_prommpts(queries, query_times)
 
         # Generate responses via vllm
-        breakpoint()
         responses = self.llm.generate(
             formatted_prompts,
             vllm.SamplingParams(
