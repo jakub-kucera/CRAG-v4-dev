@@ -14,3 +14,4 @@ debugpy==1.8.0
 python-dotenv
 vllm==0.4.2
 auto-gptq
+nltk
