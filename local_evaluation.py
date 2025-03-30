@@ -298,6 +298,7 @@ def generate(dataset_path, predictions_results_path):
             "dataset_path": dataset_path,
             "datetime": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }, f)
+    del generate_model
 
 
 def evaluate(predictions_results_path, evaluation_results_path):
