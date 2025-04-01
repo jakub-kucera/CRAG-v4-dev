@@ -175,7 +175,7 @@ class InstructModel:
         formatted_prompt = self.tokenizer.apply_chat_template(
             prompt_messages, tokenize=False, add_generation_prompt=True)
         response = self.llm.generate(
-            formatted_prompt,
+            [formatted_prompt],
             vllm.SamplingParams(
                 n=1,  # Number of output sequences to return for each prompt.
                 top_p=0.9,  # Float that controls the cumulative probability of the top tokens to consider.
@@ -185,4 +185,4 @@ class InstructModel:
             ),
             use_tqdm=False
         )
-        return response.outputs[0].text
+        return response[0].outputs[0].text
