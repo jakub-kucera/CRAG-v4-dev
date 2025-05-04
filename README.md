@@ -45,6 +45,9 @@ Please refer to [local_evaluation.py](local_evaluation.py) for more details on h
    ```
 
 4. Test your model locally using `python local_evaluation.py`. This script will run answer generation and auto-evaluation.
+```shell 
+python local_evaluation.py --dataset-path data/crag_task_1_and_2_dev_v4.jsonl.bz2 --generate-only
+```
 
 
 ## 🏁 Baselines
