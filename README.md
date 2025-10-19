@@ -1,3 +1,16 @@
+> [!NOTE]
+> **About this fork:** I used Meta's CRAG benchmark in my master's thesis and changed it to work with local models. For the overview and results, see [czech-legal-rag](https://github.com/jakub-kucera/czech-legal-rag). All my changes are in [this comparison](https://github.com/jakub-kucera/CRAG-v4-dev/compare/c71ad61...main).
+>
+> - `local_evaluation.py` can run generation and evaluation separately (`--generate-only`, `--evaluate-only`).
+> - The judge model can differ from the generator. It can be a local model through Ollama (`models/ollama_model.py`) or any OpenAI-compatible API (`models/openapi_model.py`) instead of GPT-4.
+>
+> ```bash
+> python local_evaluation.py --dataset-path data/crag_task_1_and_2_dev_v4.jsonl.bz2 --generate-only
+> python local_evaluation.py --dataset-path data/crag_task_1_and_2_dev_v4.jsonl.bz2 --evaluate-only --predictions-results-path predictions_<timestamp>.json
+> ```
+
+---
+
 # CRAG: Comprehensive RAG Benchmark
 
 The Comprehensive RAG Benchmark (CRAG) is a rich and comprehensive factual question answering benchmark designed to advance research in RAG. Besides question-answer pairs, CRAG provides mock APIs to simulate web and knowledge graph search. CRAG is designed to encapsulate a diverse array of questions across five domains and eight question categories, reflecting varied entity popularity from popular to long-tail, and temporal dynamisms ranging from years to seconds.
